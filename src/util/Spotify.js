@@ -1,4 +1,4 @@
-const clientId = process.env.REACT_APP_CLIENT_ID
+const clientId = "{process.env.REACT_APP_CLIENT_ID}"
 const redirectUri = "https://bamboodia-spoton.netlify.app"
 let accessToken
 
