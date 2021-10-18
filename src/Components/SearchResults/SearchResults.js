@@ -13,7 +13,8 @@ class SearchResults extends React.Component {
 				isRemoval={false}
 				onPlay={this.props.onPlay}
 				onStop={this.props.onStop}
-				isPlaying={this.props.isPlaying} />
+				isPlaying={this.props.isPlaying}
+				playlist={this.props.playlist}  />
 			</div>
 		)
 	}

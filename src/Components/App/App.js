@@ -13,8 +13,7 @@ class App extends React.Component {
 		this.state = {
 			searchResults: [],
 			playlistName: "Playlist Name",
-			playlistTracks: [],
-			previews: [],
+			playlistTracks: [],			
 			isPlaying: false,
 			currentlyPlaying: null,
 			volumeVal: 0.5,
@@ -27,16 +26,13 @@ class App extends React.Component {
 		this.savePlaylist = this.savePlaylist.bind(this)
 		this.handlePlayTrack = this.handlePlayTrack.bind(this)
 		this.handleStopTrack = this.handleStopTrack.bind(this)
-		this.handleVolume = this.handleVolume.bind(this)
+		this.handleVolume = this.handleVolume.bind(this)		
 	}
 
 	search(term) {
 		window.sessionStorage.searchTerm = term
 		Spotify.search(term).then((searchResults) => {
-			console.log(searchResults)
-			let previews = searchResults.map((preview) => preview.preview)
-			// console.log(previews)
-			this.setState({ previews: previews })
+			console.log(searchResults)			
 			this.setState({ searchResults: searchResults })
 		})
 	}
@@ -44,17 +40,15 @@ class App extends React.Component {
 	addTrack(track) {
 		let tracks = this.state.playlistTracks
 		tracks.push(track)
-
 		this.setState({ playlistTracks: tracks })
 	}
 
 	removeTrack(track) {
 		let tracks = this.state.playlistTracks
 		tracks = tracks.filter((currentTrack) => currentTrack.id !== track.id)
-
 		this.setState({ playlistTracks: tracks })
 	}
-
+	
 	updatePlaylistName(name) {
 		this.setState({ playlistName: name })
 	}
@@ -106,11 +100,29 @@ class App extends React.Component {
 					Spot<span className="highlight">On</span>
 				</h1>
 				<div className="App">
-					<SearchBar onSearch={this.search} />
-					<Volume volumeVal={this.state.volumeVal} handleVolume={this.handleVolume} />
+					<SearchBar 
+					onSearch={this.search} />
+					<Volume 
+					volumeVal={this.state.volumeVal} 
+					handleVolume={this.handleVolume} />
 					<div className="App-playlist">
-						<SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} onPlay={this.handlePlayTrack} onStop={this.handleStopTrack} isPlaying={this.state.currentlyPlaying} />
-						<Playlist playlistTracks={this.state.playlistTracks} onNameChange={this.updatePlaylistName} onRemove={this.removeTrack} onSave={this.savePlaylist} onPlay={this.handlePlayTrack} onStop={this.handleStopTrack} isPlaying={this.state.currentlyPlaying} />
+						<SearchResults 
+						searchResults={this.state.searchResults} 
+						onAdd={this.addTrack} 
+						onPlay={this.handlePlayTrack} 
+						onStop={this.handleStopTrack} 
+						isPlaying={this.state.currentlyPlaying}
+						isAdded={this.isAdded}
+						playlist={this.state.playlistTracks} />
+						<Playlist 
+						playlistTracks={this.state.playlistTracks} 
+						onNameChange={this.updatePlaylistName} 
+						onRemove={this.removeTrack} 
+						onSave={this.savePlaylist} 
+						onPlay={this.handlePlayTrack} 
+						onStop={this.handleStopTrack} 
+						isPlaying={this.state.currentlyPlaying}
+						playlist={this.state.playlistTracks}	/>
 					</div>
 				</div>
 				<audio id="player" src=""></audio>

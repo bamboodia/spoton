@@ -1,7 +1,7 @@
 import React from "react"
-import "./Track.css"
+import "./PlaylistTrack.css"
 
-class Track extends React.Component {
+class PlaylistTrack extends React.Component {
 	constructor(props) {
 		super(props)
 		this.addTrack = this.addTrack.bind(this)
@@ -34,14 +34,7 @@ class Track extends React.Component {
 	}
 
 	renderAdd() {		
-		if (this.props.playlist.includes(this.props.track)) {
-			return (
-				<button className="Track-action added">
-					<span className="material-icons">done</span>
-				</button>
-			)
-		}
-		else if (this.props.isRemoval) {
+		if (this.props.isRemoval) {
 			return (
 				<button className="Track-action" onClick={this.removeTrack}>
 					-
@@ -90,4 +83,4 @@ class Track extends React.Component {
 	}
 }
 
-export default Track
+export default PlaylistTrack

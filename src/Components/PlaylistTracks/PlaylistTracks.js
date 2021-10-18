@@ -1,13 +1,13 @@
 import React from "react"
-import "./Tracklist.css"
-import Track from "../Track/Track"
+import "./PlaylistTracks.css"
+import PlaylistTrack from "../PlaylistTrack/PlaylistTrack"
 
-class Tracklist extends React.Component {
+class PlaylistTracks extends React.Component {
 	render() {
 		return (
-			<div className="TrackList">
+			<div className="PlaylistTracks">
 				{this.props.tracks.map((track) => {
-					return <Track 
+					return <PlaylistTrack 
 					track={track} 
 					key={track.id} 
 					onAdd={this.props.onAdd} 
@@ -23,4 +23,4 @@ class Tracklist extends React.Component {
 	}
 }
 
-export default Tracklist
+export default PlaylistTracks 

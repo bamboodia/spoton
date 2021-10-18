@@ -7,7 +7,6 @@
 }
 
 .Track-action {
-	width: 45px;
 	cursor: pointer;
 	padding: 0.5rem;
 	font-size: 1.05rem;
@@ -41,7 +40,7 @@
 	color: rgba(256, 256, 256, 0.8);
 }
 
-.play-button {	
+.play-button {
 	padding: 0.5rem;
 	font-size: 1.05rem;
 	transition: color 0.25s;
@@ -64,10 +63,6 @@
 }
 .block:hover {
 	cursor: default;
-}
-.added {
-	cursor: default;
-	color: rgba(30, 215, 96, 1);
 }
 .albumArt {
 	height: 50px;
