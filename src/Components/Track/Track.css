@@ -17,8 +17,11 @@
 	color: #fff;
 }
 
-.Track-action:hover {
-	color: rgba(30, 215, 96, 1);
+.add:hover {
+	color: rgb(30, 215, 96);
+}
+.remove:hover {
+	color: rgb(215, 30, 30);
 }
 
 .Track-information {
