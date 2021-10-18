@@ -1,5 +1,5 @@
-const clientId = "2196dbe44fd44bdca0a448c5582c9d77"
-const redirectUri = "https://bamboodia-spoton.surge.sh"
+const clientId = process.env.CLIENT_ID
+const redirectUri = "https://bamboodia-spoton.netlify.app"
 let accessToken
 
 const Spotify = {
